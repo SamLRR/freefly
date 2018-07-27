@@ -59,10 +59,9 @@ public class AppController {
     }
 
     @RequestMapping(value = "password/{password}",method = RequestMethod.GET)
-    public String getCryptPassword(@PathVariable("password") String passwword, Model model){
-        model.addAttribute("password",passwword);
-        model.addAttribute("encodePassword",new BCryptPasswordEncoder().encode(passwword));
+    public String getCryptPassword(@PathVariable("password") String password, Model model){
+        model.addAttribute("password",password);
+        model.addAttribute("encodePassword",new BCryptPasswordEncoder().encode(password));
         return "password";
-
     }
 }

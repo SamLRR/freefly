@@ -14,7 +14,25 @@ public interface BasicDao <T>{
      */
     T create(T entity);
 
+    /**
+     * method for getting entity by specific id
+     *
+     * @param id - entity's id
+     * @return entity by id
+     */
     T getById(long id);
 
+    /**
+     * method for getting all data from entity
+     *
+     * @return data list from entity
+     */
     List<T> getList();
+
+    /**
+     * method for update data from entity
+     * @param entity - entity for update
+     * @return updated entity
+     */
+    T update(T entity);
 }

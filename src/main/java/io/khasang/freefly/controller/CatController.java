@@ -32,4 +32,10 @@ public class CatController {
     public List<Cat> getAllCats() {
         return catService.getAllCats();
     }
+
+    @RequestMapping(value = "/update", method = RequestMethod.PUT, produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public Cat updateCat(@RequestBody Cat cat) {
+        return catService.updateCat(cat);
+    }
 }

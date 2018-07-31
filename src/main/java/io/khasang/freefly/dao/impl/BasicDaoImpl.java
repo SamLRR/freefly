@@ -1,6 +1,7 @@
 package io.khasang.freefly.dao.impl;
 
 import io.khasang.freefly.dao.BasicDao;
+import io.khasang.freefly.entity.Cat;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,11 @@ public class BasicDaoImpl<T>  implements BasicDao<T> {
 
     public BasicDaoImpl(Class<T> entityClass) {
         this.entityClass = entityClass;
+    }
+
+    @Override
+    public T getById(long id) {
+        return getSessionFactory().get(entityClass,id);
     }
 
     @Override

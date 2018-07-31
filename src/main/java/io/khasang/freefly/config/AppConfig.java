@@ -1,5 +1,8 @@
 package io.khasang.freefly.config;
 
+import io.khasang.freefly.dao.CatDao;
+import io.khasang.freefly.dao.impl.CatDaoImpl;
+import io.khasang.freefly.entity.Cat;
 import io.khasang.freefly.model.call.CreateTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -48,5 +51,10 @@ public class AppConfig {
     @Bean
     public CreateTable createTable() {
         return new CreateTable(jdbcTemplate());
+    }
+
+    @Bean
+    public CatDao catDao(){
+        return new CatDaoImpl(Cat.class);
     }
 }

@@ -3,6 +3,8 @@ package io.khasang.freefly.controller;
 import io.khasang.freefly.entity.Cat;
 import io.khasang.freefly.service.CatService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,5 +39,15 @@ public class CatController {
     @ResponseBody
     public Cat updateCat(@RequestBody Cat cat) {
         return catService.updateCat(cat);
+    }
+
+    @RequestMapping(value = "/del/{id}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<Void> removeCat(@PathVariable(value = "id") String id) {
+        Cat catById = getCatById(id);
+        if (catById== null){
+            return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+        }
+        catService.removeCatById(catById);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 }

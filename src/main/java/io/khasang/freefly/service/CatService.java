@@ -35,4 +35,5 @@ public interface CatService {
      */
     Cat updateCat(Cat cat);
 
+    void removeCatById(Cat cat);
 }

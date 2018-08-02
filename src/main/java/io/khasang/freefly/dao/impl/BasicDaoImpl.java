@@ -13,9 +13,9 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Transactional
-public class BasicDaoImpl<T>  implements BasicDao<T> {
+public class BasicDaoImpl<T> implements BasicDao<T> {
     private final Class<T> entityClass;
-    
+
     @Autowired
     protected SessionFactory sessionFactory;
 
@@ -25,7 +25,7 @@ public class BasicDaoImpl<T>  implements BasicDao<T> {
 
     @Override
     public T getById(long id) {
-        return getSessionFactory().get(entityClass,id);
+        return getSessionFactory().get(entityClass, id);
     }
 
     @Override
@@ -50,6 +50,11 @@ public class BasicDaoImpl<T>  implements BasicDao<T> {
     public T update(T entity) {
         getSessionFactory().update(entity);
         return entity;
+    }
+
+    @Override
+    public void remove(Cat cat) {
+        getSessionFactory().delete(cat);
     }
 
     private Session getSessionFactory() {

@@ -33,4 +33,11 @@ public class CatServiceImpl implements CatService {
     public Cat updateCat(Cat cat) {
         return catDao.update(cat);
     }
+
+    @Override
+    public void removeCatById(Cat cat) {
+        catDao.remove(cat);
+    }
+
+
 }

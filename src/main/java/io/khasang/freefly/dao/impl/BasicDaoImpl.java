@@ -53,8 +53,8 @@ public class BasicDaoImpl<T> implements BasicDao<T> {
     }
 
     @Override
-    public void remove(Cat cat) {
-        getSessionFactory().delete(cat);
+    public void remove(Cat entity) {
+        getSessionFactory().delete(entity);
     }
 
     private Session getSessionFactory() {

@@ -42,12 +42,12 @@ public class CatController {
     }
 
     @RequestMapping(value = "/del/{id}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<Void> removeCat(@PathVariable(value = "id") String id) {
+    public ResponseEntity removeCat(@PathVariable(value = "id") String id) {
         Cat catById = getCatById(id);
         if (catById== null){
-            return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
         catService.removeCatById(catById);
-        return new ResponseEntity<Void>(HttpStatus.OK);
+        return new ResponseEntity(HttpStatus.OK);
     }
 }

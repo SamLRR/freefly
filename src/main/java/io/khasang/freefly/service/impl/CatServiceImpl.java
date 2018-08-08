@@ -38,6 +38,4 @@ public class CatServiceImpl implements CatService {
     public void removeCatById(Cat cat) {
         catDao.remove(cat);
     }
-
-
 }

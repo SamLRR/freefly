@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="394.25" y="80.0">io.khasang.freefly.dao.impl.BasicDaoImpl</node>
+    <node x="0.0" y="227.0">io.khasang.freefly.controller.CatController</node>
+    <node x="276.0" y="113.5">io.khasang.freefly.dao.CatDao</node>
+    <node x="192.00000000000003" y="227.0">io.khasang.freefly.service.impl.CatServiceImpl</node>
+    <node x="361.875" y="227.0">io.khasang.freefly.dao.impl.CatDaoImpl</node>
+    <node x="61.00000000000003" y="113.5">io.khasang.freefly.service.CatService</node>
+    <node x="357.1964285714286" y="0.0">io.khasang.freefly.dao.BasicDao</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="io.khasang.freefly.dao.impl.BasicDaoImpl" target="io.khasang.freefly.dao.BasicDao">
+      <point x="0.0" y="-48.5" />
+      <point x="501.75" y="55.0" />
+      <point x="425.4464285714286" y="55.0" />
+      <point x="22.75" y="15.0" />
+    </edge>
+    <edge source="io.khasang.freefly.service.impl.CatServiceImpl" target="io.khasang.freefly.dao.CatDao">
+      <point x="35.0" y="-26.0" />
+      <point x="-21.0" y="15.0" />
+    </edge>
+    <edge source="io.khasang.freefly.service.impl.CatServiceImpl" target="io.khasang.freefly.service.CatService">
+      <point x="-35.0" y="-26.0" />
+      <point x="227.00000000000003" y="202.0" />
+      <point x="136.00000000000003" y="202.0" />
+      <point x="25.0" y="15.0" />
+    </edge>
+    <edge source="io.khasang.freefly.dao.CatDao" target="io.khasang.freefly.dao.BasicDao">
+      <point x="0.0" y="-15.0" />
+      <point x="318.0" y="55.0" />
+      <point x="379.9464285714286" y="55.0" />
+      <point x="-22.75" y="15.0" />
+    </edge>
+    <edge source="io.khasang.freefly.controller.CatController" target="io.khasang.freefly.service.CatService">
+      <point x="0.0" y="-26.0" />
+      <point x="-25.0" y="15.0" />
+    </edge>
+    <edge source="io.khasang.freefly.dao.impl.CatDaoImpl" target="io.khasang.freefly.dao.CatDao">
+      <point x="-64.0" y="-26.0" />
+      <point x="393.875" y="202.0" />
+      <point x="339.0" y="202.0" />
+      <point x="21.0" y="15.0" />
+    </edge>
+    <edge source="io.khasang.freefly.dao.impl.CatDaoImpl" target="io.khasang.freefly.dao.impl.BasicDaoImpl">
+      <point x="0.0" y="-26.0" />
+      <point x="457.875" y="202.0" />
+      <point x="448.0" y="202.0" />
+      <point x="-53.75" y="48.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="0.0" y="193.5" />
+  <SelectedNodes>
+    <node>io.khasang.freefly.dao.impl.CatDaoImpl</node>
+    <node>io.khasang.freefly.service.CatService</node>
+    <node>io.khasang.freefly.dao.BasicDao</node>
+    <node>io.khasang.freefly.dao.impl.BasicDaoImpl</node>
+    <node>io.khasang.freefly.controller.CatController</node>
+    <node>io.khasang.freefly.dao.CatDao</node>
+    <node>io.khasang.freefly.service.impl.CatServiceImpl</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

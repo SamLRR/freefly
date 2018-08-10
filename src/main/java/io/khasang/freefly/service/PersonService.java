@@ -1,7 +1,10 @@
 package io.khasang.freefly.service;
 
+import io.khasang.freefly.dto.PersonDTO;
 import io.khasang.freefly.entity.Person;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public interface PersonService {
@@ -11,7 +14,7 @@ public interface PersonService {
      * @param id  - person's id
      * @return person by id
      */
-    Person getPersonById(long id);
+    PersonDTO getPersonDTOById(long id);
 
     /**
      * method for add person
@@ -19,4 +22,10 @@ public interface PersonService {
      * @return created person
      */
     Person addPerson(Person person);
+
+    /**
+     * method for getting all persons
+     * @return list persons
+     */
+    List<PersonDTO> getAllPersonsDTO();
 }

@@ -1,11 +1,16 @@
 package io.khasang.freefly.controller;
 
+import io.khasang.freefly.dto.PersonDTO;
 import io.khasang.freefly.entity.Address;
 import io.khasang.freefly.entity.Person;
 import org.junit.Test;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 
@@ -18,16 +23,16 @@ public class PersonControllerIntegrationTest {
     public void addPerson() {
         Person person = createPerson();
         RestTemplate template = new RestTemplate();
-        ResponseEntity<Person> entity = template.exchange(
+        ResponseEntity<PersonDTO> entity = template.exchange(
                 ROOT + GET_BY_ID + "/{id}",
                 HttpMethod.GET,
                 null,
-                Person.class,
+                PersonDTO.class,
                 person.getId()
         );
 
-//        assertEquals("OK", entity.getStatusCode().getReasonPhrase());
-//        assertNotNull(entity.getBody());
+        assertEquals("OK", entity.getStatusCode().getReasonPhrase());
+        assertNotNull(entity.getBody());
     }
 
     private Person createPerson() {
@@ -61,8 +66,11 @@ public class PersonControllerIntegrationTest {
         address2.setStreet("18th Avenue");
         address2.setNumber("18B");
 
-        person.getAddresses().add(address1);
-        person.getAddresses().add(address2);
+        List<Address> addressList = new ArrayList<>();
+        addressList.add(address1);
+        addressList.add(address2);
+
+        person.setAddresses(addressList);
         return person;
     }
 }

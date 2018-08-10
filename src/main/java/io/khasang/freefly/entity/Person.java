@@ -4,19 +4,16 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "Person")
-@Table(name = "person")
+@Entity
+@Table(name = "persons")
 public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private List<Address> addresses = new ArrayList<>();
-
-    public Person() {
-    }
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Address> addressList = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -26,11 +23,11 @@ public class Person {
         this.id = id;
     }
 
-    public void setAddresses(List<Address> addresses) {
-        this.addresses = addresses;
+    public void setAddresses(List<Address> addressList) {
+        this.addressList = addressList;
     }
 
     public List<Address> getAddresses() {
-        return addresses;
+        return addressList;
     }
 }

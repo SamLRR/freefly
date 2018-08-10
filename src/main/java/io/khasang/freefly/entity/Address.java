@@ -1,9 +1,13 @@
 package io.khasang.freefly.entity;
 
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity(name = "Address")
-@Table(name = "address")
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name = "addresses")
 public class Address {
 
     @Id
@@ -12,7 +16,18 @@ public class Address {
 
     private String street;
 
+//    @JsonIgnore
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "addressList")
+    private List<Person> personList = new ArrayList<>();
     private String number;
+
+    public List<Person> getPersonList() {
+        return personList;
+    }
+
+    public void setPersonList(List<Person> personList) {
+        this.personList = personList;
+    }
 
     public long getId() {
         return id;
